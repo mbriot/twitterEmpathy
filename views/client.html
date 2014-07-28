@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+	    <meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel='stylesheet' href='stylesheets/bootstrap.css' />
+		<link rel="stylesheet" href="stylesheets/font-awesome.min.css">
+		<link rel='stylesheet' href='stylesheets/style.css' />
+		<script src="/socket.io/socket.io.js"></script>
+	</head>
+	<body>
+		
+		<header>
+			<h1>Twitter Empathy</h1>
+
+			<div class="row" id="alertError" style="display:none;">
+				<div class="alert alert-danger col-xs-4 col-lg-offset-4" role="alert"></div>
+			</div>
+
+			<div class="row" id="credentialsForm">
+			  <div class="col-lg-4 col-lg-offset-4">
+			      <form class="form-horizontal" >
+			        <div class="form-group">
+			        	<input id="user" type="text" placeholder="@yourTwitterName" class="form-control makeItGreen">
+			        </div>
+			        <div class="form-group">
+		        		<input id="consumer_key" type="text" placeholder="consumer_key" class="form-control makeItGreen">
+		        	</div>
+			        <div class="form-group">
+			        	<input id="consumer_secret" type="text" placeholder="consumer_secret" class="form-control makeItGreen">
+			        </div>
+			        <div class="form-group">
+			        	<input id="access_token" type="text" placeholder="access_token" class="form-control makeItGreen">
+			        </div>
+			        <div class="form-group">
+			        	<input id="access_token_secret" type="text" placeholder="access_token_secret" class="form-control makeItGreen">
+			        </div>
+
+			        <!-- Form actions -->
+			        <div class="form-group">
+			            <button type="button" class="btn btn-success btn-lg btn-block" id="setCredentials">
+			            	<span class="fa fa-check fa-fw"></span>
+			            </button>
+			        </div>
+			      </form>
+			    </div>
+			</div>
+
+			<div class="row" id="userForm">
+				<div class="col-lg-4 col-lg-offset-4">
+		            <div class="input-group custom-search-form">
+		              <input type="text" class="form-control makeItGreen" placeholder="@BarackObama" id="userToStalk">
+		              <span class="input-group-btn">
+		              <button class="btn btn-success" type="button"  id="startProcess">
+		              	<span class="fa fa-check fa-fw"></span>
+		             </button>
+		             </span>
+		            </div><!-- /input-group -->
+		        </div>
+			</div>
+
+			<div class="row" id="stalkingUserInfo"></div>
+		</header>
+
+		<div class="row" id="friendsList"></div>
+
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+		<script src="javascripts/twitter-management.js"></script>
+	</body>
+</html>
+

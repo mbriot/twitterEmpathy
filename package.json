@@ -1,0 +1,9 @@
+{
+    "name": "express.io-examples",
+    "version": "1.0.1",
+    "author": "Brad Carleton <brad@techpines.com>",
+    "dependencies": {
+        "express.io": "*",
+    	"twit": "~1.1.9"
+    }
+}

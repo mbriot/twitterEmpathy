@@ -1,0 +1,71 @@
+
+========================================
+Fonctionnement general : 
+========================================
+
+1) page d'accueil explique le fonctionnement et l'interet avec un peu d'humour.
+Un bouton Get Started amène sur la page de demande de credentials -> demande de screenName -> process
+
+2) demander les credentials - tenter de s'authentifier
+si c'est ok, recuperer les infos de l'utilisateur et afficher son item en haut.
+-> gerer le cas ou credentials mauvais !!!
+
+3) demander le nom d'un utilisateur a stalker. onClick : io.emit("ready") lance le process
+-> gerer le cas ou screenName est mauvais !!!
+
+On affiche la liste des utilisateurs, une fois que le user est followé, on affiche une grosse image CHECK
+dans le coin droit de son item (l'item doit donc avoir un ID et pourquoi pas son id twitter)
+
+en haut a gauche : profil de l'utilisateur avec nombre de following qui diminue ou augmente en fonction de l'action
+
+Un bouton permet de virer tous les followings uniquement
+
+Possiblilité de récupérer l'ensemble de ses friends dans un format que l'on peut conserver.
+Tous les virer et follower ceux d'un utilisateur choisit.
+Faire le rollback sur demande soit avec ancienne liste fournie soit avec ancienne liste en memoire.
+
+Ecrire un readme.md
+
+========================================
+To DO : 
+========================================
+
+Follow chaque personne et afficher une vignette ok ou fail
+
+Faire varier le nombre de follower du compte du stalker en fonction de l'avancement
+
+Gerer le rate limit de twitter avec un sleep de x ms en fctiondu nbre de friends et de la limitation
+
+Gerer les tokens dans une session
+
+Si le premier caractere est un @ le retirer, si le username contient un espace au milieu lancer une erreur,
+si il a des espaces a la fin les supprimer.
+
+les liens en vert quand on passe dessus c est moche
+
+========================================
+RESSOURCE : 
+========================================
+// avoir les droits read/write pour son compte twitter
+https://dev.twitter.com/discussions/26862
+http://meberhard.me/workaround-twitter-application-write-access-mobile-number-accepted-twitter-website/
+https://dev.twitter.com/discussions/1274
+
+Sophia2692
+aurelie_cedric
+cYostBERTRAND
+
+fakeFrikadel
+consumer_key:         'dvHCf3Ce2ECr9ydWK8pOg',
+consumer_secret:      'kz7mMPuNVr6JCWUgbnfKOYczYyacve8aBCXooMFVSE',
+access_token:         '2269032702-QgmAvaTgj2VdrG64FvSDgyUkrJRfen7huwB7cqG',
+access_token_secret:  'vmsiuw8IfHMiITtURaXbujm1XSrw3DiZTlyET658kuyls',
+
+
+robochorobocho@gmail.com
+robochorobocho
+
+oauth.consumerKey=XOHTHOIXZfx2Byz9XNI1fgBoL
+oauth.consumerSecret=48Ch9BIpJqtqlXM0NIJb1QzTWXIQpj9lfRxa78o1K5Z7GEuCHJ
+oauth.accessToken=2598184777-vrIXAt8WsPvtKZQvePsc5Jg9sI22dwuoSnUnVqg
+oauth.accessTokenSecret=bbN9Jy3zzvnaAHOT8meLgoE9RseqNihgbHiTGW8sAHvbp
