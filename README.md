@@ -11,6 +11,6 @@ Before using it, you need to retrieve the credentials of your twitter account wi
 install
 ==============
 
-	sudo npm intall
+	sudo npm install
 	node app.js
 	http://localhost:3000
