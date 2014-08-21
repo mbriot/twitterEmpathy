@@ -8,11 +8,11 @@ $(document).ready(function () {
 });
 
 $("#setCredentials").on('click', function () {
-//	var user = $("#user").val();
-//	var consumer_key = $("#consumer_key").val();
-//	var consumer_secret = $("#consumer_secret").val();
-//	var access_token = $("#access_token").val();
-//	var access_token_secret = $("#access_token_secret").val();
+	var user = $("#user").val();
+	var consumer_key = $("#consumer_key").val();
+	var consumer_secret = $("#consumer_secret").val();
+	var access_token = $("#access_token").val();
+	var access_token_secret = $("#access_token_secret").val();
 
     io.emit('credentials', {
         consumer_key: consumer_key,
