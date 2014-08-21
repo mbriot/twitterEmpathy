@@ -1,72 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-	    <meta charset="utf-8">
-	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel='stylesheet' href='stylesheets/bootstrap.css' />
-		<link rel="stylesheet" href="stylesheets/font-awesome.min.css">
-		<link rel='stylesheet' href='stylesheets/style.css' />
-		<script src="/socket.io/socket.io.js"></script>
-	</head>
-	<body>
-		
-		<header>
-			<h1>Twitter Empathy</h1>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Twitter Empathy</title>
+    <!-- include css -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel='stylesheet' href='stylesheets/main.css'/>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <div id="toggleNavigation">
+            <button type="button" class="navbar-toggle" data-toggle="collapse"
+                    data-target="#connectedUser">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            </div>
+            <a class="navbar-brand" href="/">Twitter Empathy</a>
+        </div>
+        <div id="connectedUser" class="collapse navbar-collapse">
+            <div>
+                <ul class="nav navbar-nav">
+                    <li class="active link"><img class="img-circle" src="" alt="" class="" width="32" height="32" /></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-envelope"></span> <span class="tweets"></span>
+                        Tweets</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> <span class="friends"></span>
+                        Amis</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> <span class="followers"></span> Fans</a>
+                    </li>
+                </ul>
+            </div>
+                <div class="navbar-form navbar-right" role="search" id="userForm">
+                    <div class="form-group">
+                        <input type="text" id="userToStalk" class="form-control" placeholder="@BarackObama"
+                               data-toggle="tooltip" data-placement="bottom" title="Entrez le twitter de quelqu'un">
+                    </div>
+                    <button type="button" id="startProcess" class="btn btn-default" data-toggle="tooltip"
+                            data-placement="bottom" title="Cliquer ici pour commencer">Start Process
+                    </button>
+                </div>
+        </div>
+    </div>
+</nav>
+<header>
+    <div class="container">
+        <div class="alert alert-info alert fade-in " role="info" id="Infos">
+            <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span
+                    class="sr-only">Close</span></button>
+            <strong>Utilisation</strong>
 
-			<div class="row" id="alertError" style="display:none;">
-				<div class="alert alert-danger col-xs-4 col-lg-offset-4" role="alert"></div>
-			</div>
+            <div>Grace à cette application, vous allez pouvoir suivre toutes les personnes qu'une personne sur twitter
+                suit.
+            </div>
+        </div>
+        <div class="alert alert-danger alert-dismissible" role="alert" id="alertError">
+            <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span
+                    class="sr-only">Close</span></button>
+            <strong>Erreur!</strong>
 
-			<div class="row" id="credentialsForm">
-			  <div class="col-lg-4 col-lg-offset-4">
-			      <form class="form-horizontal" >
-			        <div class="form-group">
-			        	<input id="user" type="text" placeholder="@yourTwitterName" class="form-control makeItGreen">
-			        </div>
-			        <div class="form-group">
-		        		<input id="consumer_key" type="text" placeholder="consumer_key" class="form-control makeItGreen">
-		        	</div>
-			        <div class="form-group">
-			        	<input id="consumer_secret" type="text" placeholder="consumer_secret" class="form-control makeItGreen">
-			        </div>
-			        <div class="form-group">
-			        	<input id="access_token" type="text" placeholder="access_token" class="form-control makeItGreen">
-			        </div>
-			        <div class="form-group">
-			        	<input id="access_token_secret" type="text" placeholder="access_token_secret" class="form-control makeItGreen">
-			        </div>
-
-			        <!-- Form actions -->
-			        <div class="form-group">
-			            <button type="button" class="btn btn-success btn-lg btn-block" id="setCredentials">
-			            	<span class="fa fa-check fa-fw"></span>
-			            </button>
-			        </div>
-			      </form>
-			    </div>
-			</div>
-
-			<div class="row" id="userForm">
-				<div class="col-lg-4 col-lg-offset-4">
-		            <div class="input-group custom-search-form">
-		              <input type="text" class="form-control makeItGreen" placeholder="@BarackObama" id="userToStalk">
-		              <span class="input-group-btn">
-		              <button class="btn btn-success" type="button"  id="startProcess">
-		              	<span class="fa fa-check fa-fw"></span>
-		             </button>
-		             </span>
-		            </div><!-- /input-group -->
-		        </div>
-			</div>
-
-			<div class="row" id="stalkingUserInfo"></div>
-		</header>
-
-		<div class="row" id="friendsList"></div>
-
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-		<script src="javascripts/twitter-management.js"></script>
-	</body>
+            <div>Error explanations go here</div>
+        </div>
+    </div>
+</header>
+</body>
 </html>
 
+
+<div class="container">
+    <div class="login-container" id="credentialsForm">
+        <img src="cover.gif" class="cover img-responsive"/>
+        <div class="form-box">
+            <form action="" method="">
+                <input id="user" name="user" type="text" placeholder="@Twitter Username" class="require form-control">
+                <input id="consumer_key" type="text" placeholder="consumer_key" class="require form-control">
+                <input id="consumer_secret" type="text" placeholder="consumer_secret" class="require form-control">
+                <input id="access_token" type="text" placeholder="access_token" class="require form-control">
+                <input id="access_token_secret" type="text" placeholder="access_token_secret"
+                       class="require form-control">
+                <button id="setCredentials" type="button" class="btn btn-info btn-block login">Démarrer</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="container" id="content">
+    <div class="row">
+        <div class="col-xs-3 affix affix-top user-details" id="stalkingUserInfo">
+            <div class="user-image">
+                <img src="" alt="" title="" class="img-circle">
+            </div>
+            <div class="user-info-block">
+                <div class="user-heading">
+                    <h3 class="username"></h3>
+                    <span class="help-block link"></span>
+                </div>
+                <div class="row infos-head text-center">
+                    <div class="col-xs-4">
+                        Tweets
+                    </div>
+                    <div class="col-xs-4">
+                        Amis
+                    </div>
+                    <div class="col-xs-4">
+                        Fans
+                    </div>
+                </div>
+                <div class="row no-padding infos text-center">
+                    <div class="col-xs-4 tweets">
+                        <span class="glyphicon glyphicon-envelope"></span>
+                    </div>
+                    <div class="col-xs-4 friends">
+                        <span class="glyphicon glyphicon-user"></span>
+                    </div>
+                    <div class="col-xs-4 followers">
+                        <span class="glyphicon glyphicon-user"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-9 no-padding" id="friendsList">
+            <div class="page-header">
+                <h1>Friends List</h1>
+            </div>
+            <div class="no-padding" id="contact-list">
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- include js -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="javascripts/twitter-management.js"></script>
+</body>
+</html>
