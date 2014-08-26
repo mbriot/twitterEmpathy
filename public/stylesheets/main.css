@@ -1,0 +1,104 @@
+
+html, body {
+    position: relative;
+    height: 100%;
+}
+
+body {
+    background-color: #efefef;
+    /*padding: 50px;*/
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    padding-top: 70px;
+}
+
+#content{background-color: #fefefe}
+
+.item{
+    height:350px;
+}
+
+.thumbnail img{
+    max-height:220px;
+    overflow: hidden;
+}
+
+.cover{
+    position:absolute;
+    width: 278px;
+    left:10px;
+    top:10px;
+
+}
+
+.navbar-nav .link a{display: inline-block}
+.navbar-nav .link img{width: 40px; height: 40px; padding-top: 0px; margin-top: -4px; padding-right: 0px; margin-right: 8px; margin-left: 12px;}
+
+#connectedUser .navbar-left{margin-top: 8px;}
+#connectedUser img{width: 32px; height: 32px}
+#connectedUser a{font-size: large;}
+
+#stalkingUserInfo {margin-top: 50px}
+#stalkingUserInfo .profile {background-color: #adadad;border: 1px solid #adadad;}
+#stalkingUserInfo .profile img {display: block;margin: 24px 0 23px 0}
+#stalkingUserInfo .profile p {text-align: center;color: #fff;}
+
+
+.no-padding{padding:0;}
+.no-margin{margin:0;}
+
+#alertError {
+    display: none;
+}
+
+.login-container {
+    position: relative;
+    width: 300px;
+    margin: 20px auto;
+    padding: 190px 40px 40px;
+    text-align: center;
+    background: #fff;
+    border: 1px solid #ccc;
+}
+
+.form-box input {
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    height: 40px;
+    border: 1px solid #ccc;;
+    background: #fafafa;
+    transition: 0.2s ease-in-out;
+
+}
+
+.form-box input:focus {
+    outline: 0;
+    background: #eee;
+}
+
+.form-box input[type="text"] {
+    border-radius: 5px 5px 0 0;
+    text-transform: lowercase;
+}
+
+.form-box input[type="password"] {
+    border-radius: 0 0 5px 5px;
+    border-top: 0;
+}
+
+.form-box button.login {
+    margin-top: 15px;
+    padding: 10px 20px;
+}
+
+body {background: #EAEAEA;}
+.user-details {position: relative; padding: 0;}
+.user-details .user-image {position: relative;  z-index: 1; width: 100%; text-align: center;}
+.user-image img { clear: both; margin: auto; position: relative; height:100px; width:100px;}
+
+.user-details .user-info-block {width: 100%; position: absolute; top: 55px; background: rgb(255, 255, 255); z-index: 0; padding-top: 35px;}
+.user-info-block .user-heading {width: 100%; text-align: center; margin: 10px 0 0;}
+.user-info-block .infos {padding-top: 0}
+.user-info-block .infos-head {}
+
+.user-info-block {float: left; padding: 5%; width: 90%;}
